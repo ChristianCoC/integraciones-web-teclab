@@ -6,6 +6,7 @@ import routesAuth from './routes/auth.js';
 import routesProducts from './routes/products.js';
 import routesUsers from './routes/users.js';
 import { verifyToken } from './middleware/authMiddleware.js';
+import routesBilling from './routes/billing.js';
 
 const app = express();
 
@@ -15,5 +16,6 @@ app.use('/', routesIndex);
 app.use('/auth', routesAuth);
 app.use('/', verifyToken, routesProducts);
 app.use('/', verifyToken, routesUsers);
+app.use('/', verifyToken, routesBilling);
 
 export default app;
